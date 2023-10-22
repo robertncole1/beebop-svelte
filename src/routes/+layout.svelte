@@ -1,5 +1,7 @@
 <script>
 	import '../app.css';
+	export const ssr = false;
+	export const prerender = false;
 </script>
 
 <header class="absolute inset-x-0 op-0 z-50">
