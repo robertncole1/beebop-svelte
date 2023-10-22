@@ -1,5 +1,4 @@
 <div class="home-bg bg-babypic1 bg-cover bg-center h-screen">
-
 	<div class="relative">
 		<div class="mx-auto max-w-2xl pt-64 lg:pt-80">
 			<div class="text-center">
