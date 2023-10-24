@@ -1,3 +1,18 @@
+<script lang="ts">
+	import firebase from 'firebase/compat/app';
+	import { auth, provider } from '../firebase';
+	import { signInWithPopup, signInWithRedirect } from "firebase/auth";
+	import 'firebase/compat/firestore';
+
+	async function loginWithGoogle() {
+		try {
+			await signInWithPopup(auth, provider);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+</script>
+
 <header class="absolute inset-x-0 op-0 z-50">
 	<nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
@@ -10,10 +25,10 @@
 			</a>
 		</div>
 		<div class="lg:flex lg:flex-1 lg:justify-end">
-			<a
-				href="#"
+			<button
+				on:click|preventDefault={loginWithGoogle}
 				class="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-				>Login</a
+				>Login</button
 			>
 		</div>
 	</nav>
