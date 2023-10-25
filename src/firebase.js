@@ -1,5 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeApp, deleteApp, getApp, getApps } from 'firebase/app';
+import { GoogleAuthProvider, getAuth } from 'firebase/auth';
+import 'firebase/compat/firestore';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
@@ -12,6 +13,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-export default db;
+let firebaseApp;
+if (!getApps().length) {
+	firebaseApp = initializeApp(firebaseConfig);
+} else {
+	firebaseApp = getApp();
+	deleteApp(firebaseApp);
+	firebaseApp = initializeApp(firebaseConfig);
+}
+
+export const auth = getAuth(firebaseApp);
+export const provider = new GoogleAuthProvider();

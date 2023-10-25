@@ -1,9 +1,29 @@
 <script>
 	import '../app.css';
-	export const ssr = false;
-	export const prerender = false;
+	import { onMount } from 'svelte';
+	import { auth } from '../firebase';
+	import { browser } from '$app/environment';
+	import { authStore } from '../stores/authStore';
+
+	onMount(() => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			console.log(user);
+			authStore.update((curr) => {
+				return { ...curr, isLoading: false, currentUser: user };
+			});
+
+			if (
+				browser &&
+				!$authStore?.currentUser &&
+				!$authStore.isLoading &&
+				window.location.pathname !== '/'
+			) {
+				window.location.href = '/';
+			}
+		});
+		return unsubscribe;
+	});
 </script>
 
-<div class="top-bar bg-amber-300 h-14"></div>
-
 <slot />
+
