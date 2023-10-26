@@ -141,8 +141,12 @@
 								{snapshot.data().age}
 							</h6>
 							<a
+								href="/tasks"
+								class="block my-3 rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">{snapshot.data().child}'s Tasks</a
+							>
+							<a
 								href="#"
-								class="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+								class="block my-3 rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
 								on:click={() => handleClick(snapshot.data().Id)}>Remove Child</a
 							>
 						</div>
