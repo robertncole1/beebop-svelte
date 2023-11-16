@@ -1,6 +1,5 @@
 <script>
 	import Auth from '../../components/Auth.svelte';
-	import AuthReset from '../../components/AuthReset.svelte';
 	import { authHandlers, authStore } from '../../stores/authStore';
 
 	let email = '';
@@ -25,7 +24,6 @@
 <div class="signup-container text-center mx-auto px-16 h-screen">
 	{#if $authStore.currentUser}
 		<h1 class="text-xl">Welcome back {email}!</h1>
-		<AuthReset />
 		<a
 			href="/children"
 			class="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"

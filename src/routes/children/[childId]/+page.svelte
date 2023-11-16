@@ -1,23 +1,26 @@
-<!-- <script>
-	import { db } from '../../firebase.js';
+<script>
 	import { collection, onSnapshot, deleteDoc, doc, addDoc, query, where } from 'firebase/firestore';
 	import { onMount } from 'svelte';
-	import { authStore } from '../../stores/authStore.js';
+	import { page } from '$app/stores';
+	import { db } from '../../../firebase.js';
+	import { authStore } from '../../../stores/authStore.js';
+
+	const childId = $page.params.childId;
 
 	let nameInput = '';
 	let timeInput = '';
 	let completedInput = false;
 	let snap;
-
 	let uid = '';
+	
 	authStore.subscribe((curr) => {
 		uid = curr?.currentUser?.uid;
 	});
 
-	const childCollection = query(collection(db, "children"), where('uid', '==', uid));
+	const childTaskCollection = query(collection(db, `children/${childId}/tasks`), where('uid', '==', uid));
 
 	onMount(() => {
-		onSnapshot(collection(db, 'tasks'), (snapshot) => {
+		onSnapshot(childTaskCollection, (snapshot) => {
 			snap = snapshot.docs;
 		});
 	});
@@ -25,14 +28,14 @@
 	const handleClick = async (id) => {
 		let confirmation = confirm('Are you sure you want to remove this task?');
 		if (confirmation) {
-			await deleteDoc(doc(db, 'tasks', id));
+			await deleteDoc(doc(db, `children/${childId}/tasks`, id));
 		}
 	};
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 		const Id = crypto.randomUUID();
-		const docRef = doc(db, `children/${childCollection.Id}`, Id);
+		const docRef = doc(db, `children`, childId);
 		const colRef = collection(docRef, 'tasks');
 		addDoc(colRef, {
 			name: nameInput,
@@ -153,4 +156,4 @@
 			</tbody>
 		</table>
 	</div>
-</div> -->
+</div>
