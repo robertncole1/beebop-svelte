@@ -1,6 +1,6 @@
 <div class="home-bg bg-babypic1 bg-cover bg-center h-screen">
 	<div class="relative">
-		<div class="mx-auto max-w-2xl pt-64">
+		<div class="mx-auto max-w-3xl pt-72">
 			<div class="text-center">
 				<img
 					class="h-auto w-auto"
