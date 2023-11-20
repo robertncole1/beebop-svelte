@@ -112,8 +112,8 @@
 	</nav>
 </header>
 
-<div class="flex justify-center h-screen">
-	<div class="px-16">
+<div class="px-12 flex justify-center h-screen">
+	<div class="px-10 w-1/2">
 		<div class="py-8">
 			<h1 class="text-xl">Add Your Child</h1>
 			<p class="text-base">Add your child's information to start creating new tasks!</p>
@@ -156,7 +156,7 @@
 			>
 		</form>
 	</div>
-	<div class="px-16">
+	<div class="px-10 w-1/2">
 		<div class="pb-24">
 			<div class="py-8">
 				<h1 class="text-xl">Your Children</h1>
@@ -166,9 +166,9 @@
 				{#if snap}
 					{#each snap as snapshot (snapshot.data().Id)}
 						<div
-							class="!m-5 card text-center w-64 border border-gray-200 rounded-lg shadow bg-amber-100"
+							class="!m-1 card text-center w-64 border border-gray-200 rounded-lg shadow bg-amber-100"
 						>
-							<img class="max-w-64 rounded-t-lg" src={snapshot.data().imgUrl} alt="" />
+							<img class="w-64 h-64 object-cover rounded-t-lg" src={snapshot.data().imgUrl} alt="" />
 							<div class="p-5">
 								<h5 class="mb-2 text-2xl font-bold tracking-tight">
 									{snapshot.data().child}
