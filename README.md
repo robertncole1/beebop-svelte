@@ -1,38 +1,6 @@
-# create-svelte
+![beebop](https://user-images.githubusercontent.com/76854545/145137647-be1e77fa-08ac-4a77-a984-4e1234dfba43.png)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Beebop is an app that will allow a caregiver or parent to manage their baby’s schedule or task list and adapt when necessary. My mother is a nanny and my sister is expecting her second child. I want to create a way for both a parent and caregiver to properly communicate so that the child's care comes first. Beebop allows you to put your trust in your caregiver while also keeping you on task as a busy parent.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Contributors
+[Robert Cole](https://github.com/robertncole1)
