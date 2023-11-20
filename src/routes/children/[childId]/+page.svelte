@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { collection, onSnapshot, deleteDoc, doc, query, where, setDoc } from 'firebase/firestore';
+	import {
+		collection,
+		onSnapshot,
+		deleteDoc,
+		doc,
+		query,
+		where,
+		setDoc,
+		getDoc
+	} from 'firebase/firestore';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { auth, db } from '../../../firebase';
@@ -11,6 +20,7 @@
 	let timeInput = '';
 	let completedInput = false;
 	let snap;
+	let childName;
 	let uid = user?.uid;
 
 	export function getChildTasks(uid: string) {
@@ -23,8 +33,20 @@
 		});
 	}
 
+	export async function getCurrentChild(childId) {
+		const docRef = doc(db, 'children', childId);
+		const docSnap = await getDoc(docRef);
+
+		if (docSnap.exists()) {
+			childName = docSnap.data().child;
+		} else {
+			console.log('No such document!');
+		}
+	}
+
 	onMount(() => {
 		getChildTasks(uid);
+		getCurrentChild(childId);
 	});
 
 	const handleClick = async (id) => {
@@ -62,7 +84,10 @@
 				/>
 			</a>
 		</div>
-		<div class="flex">
+		<div class="flex px-3">
+			<a href="/children" class="font-semibold">Your Children</a>
+		</div>
+		<div class="flex px-3">
 			<a href="/signup" class="font-semibold">Account</a>
 		</div>
 	</nav>
@@ -71,11 +96,11 @@
 <div class="flex justify-center h-screen">
 	<div class="px-16">
 		<div class="py-8">
-			<h1 class="text-xl">Add Your Task's for Alice</h1>
+			<h1 class="text-xl">Add Your Tasks for {childName}</h1>
 			<p class="text-base">Add or edit your tasks for your child</p>
 		</div>
 		<form class="w-full max-w-md">
-			<label class="block my-3 pr-4" for="task-name"> Your Child's Tasks </label>
+			<label class="block my-3 pr-4" for="task-name">Your Child's Tasks</label>
 			<input
 				class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-amber-300"
 				type="text"
@@ -85,7 +110,7 @@
 				placeholder="Task Name"
 			/>
 
-			<label class="block my-3 pr-4" for="time"> Time of Task </label>
+			<label class="block my-3 pr-4" for="time">Time of Task</label>
 			<input
 				class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-amber-300"
 				type="time"
@@ -115,8 +140,8 @@
 	<div class="px-16">
 		<div class="pb-24">
 			<div class="py-8">
-				<h1 class="text-xl">Your Tasks</h1>
-				<p class="text-base">These are all the tasks you have in the system for Alice</p>
+				<h1 class="text-xl">Your Tasks for {childName}</h1>
+				<p class="text-base">These are all the tasks you have in the system for {childName}</p>
 			</div>
 			<table class="table-auto">
 				<thead>

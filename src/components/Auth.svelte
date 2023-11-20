@@ -32,7 +32,7 @@
 
 <div>
 	<h1>{register ? 'Register' : 'Log in'}</h1>
-	<form class="w-full max-w-md">
+	<form class="w-full max-w-md m-auto">
 		<label class="block my-3 pr-4">
 			<input class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-amber-300" bind:value={email} type="email" placeholder="Email" />
 		</label>

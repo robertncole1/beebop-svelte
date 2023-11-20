@@ -23,29 +23,8 @@
 	</nav>
 </header>
 
-<div class="signup-container p-12 flex justify-center">
-	<div class="about-container p-10 rounded-lg w-2/4">
-		<h1 class="text-xl">About Us</h1>
-		<p class="text-base">
-			Beebop started as a conversation between my mother, who is a full-time nanny and my sister who
-			is expecting her second child. They both stress the importance of the parent/caregiver
-			relationship and how that can shape the development of the child. Beebop takes that
-			relationship very seriously. We are a scheduling app designed to keep your baby on track no
-			matter who is taking care of them. We got you covered.
-		</p>
-		<p>
-			Family is at the heart of everything we do and we take child development very seriously. So,
-			beebop allows you to see how your child is being cared for on a daily basis. As a parent, you
-			can create tasks and activites for your child and caregiver to do together! As a caregiver,
-			you can stay on task and keep track of everything you have acomplished today. We know how
-			challenging child care can be. Beebop is here to help!
-		</p>
-		<img
-			src="https://firebasestorage.googleapis.com/v0/b/beebop-64a63.appspot.com/o/Screenshot%202023-11-19%20at%204.10.52%E2%80%AFPM.png?alt=media&token=975f0d32-2efb-422c-baf1-6b0f55b6e2c9"
-			alt="baby pictures"
-		/>
-	</div>
-	<div class="px-12 w-2/4">
+<div class="signup-container justify-center">
+	<div class="p-12 text-center">
 		{#if $authStore.currentUser}
 			<h1 class="text-xl">Welcome back {email}!</h1>
 			<a
@@ -59,6 +38,31 @@
 			<p class="text-base">Add your infomration to start using your account.</p>
 			<Auth />
 		{/if}
+	</div>
+	<div class="about-container p-10 flex rounded-lg">
+		<div class="w-1/2">
+			<h1 class="text-xl">About Us</h1>
+			<p class="text-base">
+				Beebop started as a conversation between my mother, who is a full-time nanny and my sister
+				who is expecting her second child. They both stress the importance of the parent/caregiver
+				relationship and how that can shape the development of the child. Beebop takes that
+				relationship very seriously. We are a scheduling app designed to keep your baby on track no
+				matter who is taking care of them. We got you covered.
+			</p>
+			<p>
+				Family is at the heart of everything we do and we take child development very seriously. So,
+				beebop allows you to see how your child is being cared for on a daily basis. As a parent,
+				you can create tasks and activites for your child and caregiver to do together! As a
+				caregiver, you can stay on task and keep track of everything you have acomplished today. We
+				know how challenging child care can be. Beebop is here to help!
+			</p>
+		</div>
+		<div class="w-1/2">
+			<img
+				src="https://firebasestorage.googleapis.com/v0/b/beebop-64a63.appspot.com/o/Screenshot%202023-11-19%20at%204.10.52%E2%80%AFPM.png?alt=media&token=975f0d32-2efb-422c-baf1-6b0f55b6e2c9"
+				alt="baby pictures"
+			/>
+		</div>
 	</div>
 </div>
 
