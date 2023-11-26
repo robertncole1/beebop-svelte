@@ -39,8 +39,8 @@
 			<Auth />
 		{/if}
 	</div>
-	<div class="about-container p-10 flex rounded-lg">
-		<div class="w-1/2">
+	<div class="about-container p-10 md:flex rounded-lg">
+		<div class="md:w-1/2">
 			<h1 class="text-xl">About Us</h1>
 			<p class="text-base">
 				Beebop started as a conversation between my mother, who is a full-time nanny and my sister
@@ -57,7 +57,7 @@
 				know how challenging child care can be. Beebop is here to help!
 			</p>
 		</div>
-		<div class="w-1/2">
+		<div class="md:w-1/2">
 			<img
 				src="https://firebasestorage.googleapis.com/v0/b/beebop-64a63.appspot.com/o/Screenshot%202023-11-19%20at%204.10.52%E2%80%AFPM.png?alt=media&token=975f0d32-2efb-422c-baf1-6b0f55b6e2c9"
 				alt="baby pictures"
