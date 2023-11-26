@@ -50,7 +50,7 @@
 	});
 
 	const handleClick = async (id) => {
-		let confirmation = confirm('Are you sure you want to remove this task?');
+		let confirmation = confirm('Completing the task will remove it from the list. Are you sure?');
 		const docRef = doc(db, 'children', childId);
 		const colRef = doc(docRef, 'tasks', id);
 		if (confirmation) {
@@ -93,8 +93,8 @@
 	</nav>
 </header>
 
-<div class="flex justify-center h-screen">
-	<div class="px-16">
+<div class="md:flex justify-center h-screen">
+	<div class="px-5">
 		<div class="py-8">
 			<h1 class="text-xl">Add Your Tasks for {childName}</h1>
 			<p class="text-base">Add or edit your tasks for your child</p>
@@ -119,50 +119,38 @@
 				id="time"
 				placeholder="Task Time"
 			/>
-
-			<label class="block text-gray-500 my-3 font-bold">
-				<input
-					class="mr-2 leading-tight"
-					type="checkbox"
-					bind:checked={completedInput}
-					name="completed"
-					id="completed"
-				/>
-				<span class="text-sm"> Is the Task Completed? </span>
-			</label>
 			<button
 				on:click={handleFormSubmit}
-				class="block rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+				class="block rounded-md bg-amber-300 px-3.5 my-5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
 				>Submit</button
 			>
 		</form>
 	</div>
-	<div class="px-16">
+	<div class="px-5">
 		<div class="pb-24">
 			<div class="py-8">
 				<h1 class="text-xl">Your Tasks for {childName}</h1>
 				<p class="text-base">These are all the tasks you have in the system for {childName}</p>
 			</div>
-			<table class="table-auto">
+			<table class="table-auto text-center">
 				<thead>
 					<tr>
-						<th class="px-4 py-2">Task Name</th>
-						<th class="px-4 py-2">Time of Task</th>
-						<th class="px-4 py-2">Completed?</th>
+						<th class="px-2 py-5">Task Name</th>
+						<th class="px-2 py-5">Time of Task</th>
+						<th class="px-2 py-5">Complete Task?</th>
 					</tr>
 				</thead>
 				<tbody>
 					{#if snap}
 						{#each snap as snapshot (snapshot.data().Id)}
 							<tr>
-								<td class="border px-4 py-4">{snapshot.data().name}</td>
-								<td class="border px-4 py-4">{snapshot.data().time}</td>
-								<td class="border px-4 py-4">{snapshot.data().completed}</td>
-								<td class="border px-4 py-4">
+								<td class="border px-2 py-5">{snapshot.data().name}</td>
+								<td class="border px-2 py-5">{snapshot.data().time}</td>
+								<td class="border px-2 py-5">
 									<a
 										href="#"
 										class="rounded-md bg-amber-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-										on:click={() => handleClick(snapshot.data().Id)}>Remove Task</a
+										on:click={() => handleClick(snapshot.data().Id)}>Complete</a
 									>
 								</td>
 							</tr>
