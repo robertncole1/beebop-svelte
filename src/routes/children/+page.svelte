@@ -7,7 +7,6 @@
 	import { browser } from '$app/environment';
 	import { authStore } from '../../stores/authStore.js';
 
-
 	let childInput = '';
 	let urlInput = '';
 	let ageInput = '';
@@ -141,7 +140,6 @@
 					placeholder="Your Child's Age"
 				/>
 			</div>
-			<div>
 			<label for="child-img" class="block my-3 pr-4">Picture of Your Child</label>
 
 			<input type="file" id="files" bind:value={urlInput} on:change={handleChange} />
@@ -169,7 +167,11 @@
 						<div
 							class="!m-1 card text-center w-64 border border-gray-200 rounded-lg shadow bg-amber-100"
 						>
-							<img class="w-64 h-64 object-cover rounded-t-lg" src={snapshot.data().imgUrl} alt="" />
+							<img
+								class="w-64 h-64 object-cover rounded-t-lg"
+								src={snapshot.data().imgUrl}
+								alt=""
+							/>
 							<div class="p-5">
 								<h5 class="mb-2 text-2xl font-bold tracking-tight">
 									{snapshot.data().child}
